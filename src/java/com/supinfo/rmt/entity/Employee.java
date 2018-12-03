@@ -7,6 +7,8 @@
 package com.supinfo.rmt.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -14,6 +16,16 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Employee extends User {
-    
 
+	@JoinColumn
+	@ManyToOne
+	private Manager manager;
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
+	}
 }

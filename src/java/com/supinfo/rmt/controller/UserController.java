@@ -31,7 +31,7 @@ public class UserController {
     private User loggedUser;
     
     public String login() {
-        loggedUser = userService.login(username, password);
+        loggedUser = userService.login(username, password).orElse(null);
         
         if(loggedUser instanceof Manager) {
             return "manager_home";
@@ -61,6 +61,12 @@ public class UserController {
     public User getLoggedUser() {
         return loggedUser;
     }
-    
-    
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
+    }
 }

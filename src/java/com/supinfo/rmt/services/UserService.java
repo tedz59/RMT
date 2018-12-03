@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import java.util.Optional;
 
 /**
  *
@@ -21,18 +22,21 @@ public class UserService {
     
     @PersistenceContext
     private EntityManager em;
-   
-    
-    public User login(String username, String password){
+
+    public Optional<User> login(String username, String password){
         
         try {
-            return (User) em.createQuery("SELECT u FROM User u "
-                    + "WHERE u.username=:username AND u.password=:password")
+            return Optional.of(em.createQuery("SELECT u FROM User u "
+                    + "WHERE u.username=:username AND u.password=:password", User.class)
                     .setParameter("username", username)
                     .setParameter("password", password)
-                    .getSingleResult();
+                    .getSingleResult());
         } catch(NoResultException e) {
-            return null; // user not exist
+            return Optional.empty();
         }
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
     }
 }
