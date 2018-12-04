@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
-public class ClientsController {
+public class ClientController {
 
 	@EJB
 	private ClientService clientService;

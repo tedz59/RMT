@@ -4,6 +4,7 @@ import com.supinfo.rmt.entity.Employee;
 import com.supinfo.rmt.entity.Manager;
 import com.supinfo.rmt.entity.User;
 import com.supinfo.rmt.services.UserService;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -19,7 +20,10 @@ public class UserController {
 	@EJB
 	private UserService userService;
 
+	@NotEmpty
 	private String username;
+
+	@NotEmpty
 	private String password;
 
 	private User loggedUser;

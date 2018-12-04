@@ -1,5 +1,7 @@
 package com.supinfo.rmt.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,6 +15,7 @@ public class Client implements Serializable {
 	@GeneratedValue
 	private long id;
 
+	@NotEmpty
 	private String name;
 
 	public long getId() {
