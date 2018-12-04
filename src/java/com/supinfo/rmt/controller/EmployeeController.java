@@ -26,7 +26,8 @@ public class EmployeeController {
 	public String create() {
 		this.employee.setManager((Manager) userController.getLoggedUser());
 
-		if(employeeService.save(this.employee).isPresent()) {
+		if (employeeService.save(this.employee)
+						   .isPresent()) {
 			return "manager_home?faces-redirect=true";
 		}
 
@@ -42,7 +43,7 @@ public class EmployeeController {
 	}
 
 	public ListDataModel<Employee> getDataModel() {
-		if(null == dataModel) {
+		if (null == dataModel) {
 			List<Employee> employees = employeeService.getByManager((Manager) userController
 																				  .getLoggedUser());
 			dataModel = new ListDataModel<>(employees);

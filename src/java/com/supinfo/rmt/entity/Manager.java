@@ -9,11 +9,9 @@ package com.supinfo.rmt.entity;
 import javax.persistence.Entity;
 
 /**
- *
  * @author Binarymachine
  */
 @Entity
 public class Manager extends User {
-    
 
 }

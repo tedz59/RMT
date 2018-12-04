@@ -19,7 +19,10 @@ public class EmployeeService {
 
 	/**
 	 * Lead to save an employee in database.
-	 * @param employee the employee to persist.
+	 *
+	 * @param employee
+	 * 	the employee to persist.
+	 *
 	 * @return the employee persisted.
 	 */
 	public Optional<Employee> save(Employee employee) {
@@ -39,14 +42,16 @@ public class EmployeeService {
 
 	/**
 	 * Retrieve all the employees by the manager username.
-	 * @param manager Manager.
+	 *
+	 * @param manager
+	 * 	Manager.
+	 *
 	 * @return a list of Employees.
 	 */
 	public List<Employee> getByManager(Manager manager) {
 		return em.createQuery("SELECT e FROM Employee e WHERE e.manager = :manager", Employee.class)
-			.setParameter("manager", manager)
-			.getResultList();
+				 .setParameter("manager", manager)
+				 .getResultList();
 	}
-
 
 }
