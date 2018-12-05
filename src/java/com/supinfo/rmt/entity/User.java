@@ -6,6 +6,7 @@
 
 package com.supinfo.rmt.entity;
 
+import com.supinfo.rmt.validator.SecuredPassword;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -38,7 +39,7 @@ public class User implements Serializable {
 	@NotEmpty
 	private String username;
 
-	@NotEmpty
+	@SecuredPassword
 	private String password;
 
 	@NotEmpty
